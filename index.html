@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 	<title>Generate Executive Orders</title>
 	<style>
 		.exec-order {
@@ -30,8 +31,10 @@
 <div style="margin: 50px; position: absolute; left: 0; top: 0; z-index: 50">
 	<span id="widget" class="widget">
 	<img src='trump.jpg' />
-	<div class="exec-order" id="exec-order" style="font-size: 18px" contenteditable onkeypress="keypress(event);">
+	<div class="exec-order" id="exec-order" style="font-size: 21px" contenteditable onkeypress="changeFont(event);">
 		Click here and write whatever you want.
+		<br><br>
+		Use '<' or '>' to reduce or increase font.
 	</div>
 	</span>
 	<br><br>
@@ -40,6 +43,18 @@
 </body>
 
 <script type="text/javascript">
-
+function changeFont(e) {
+	var code_of_key = e.keyCode;
+	if(code_of_key == 60 || code_of_key == 62) {
+		var data = document.getElementById('exec-order');
+		var curr_font_size = parseInt(data.style['font-size']);
+		console.log(curr_font_size);
+		var change_by_one = (code_of_key == 60) ? -1 : +1;
+		data.style['font-size'] = (curr_font_size + change_by_one) + 'px';
+		e.preventDefault();
+	} else {
+		return;
+	}
+}
 </script>
 </html>
