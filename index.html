@@ -87,22 +87,7 @@ $(function() {
 });
 
 var Canvas2Image=function(){function c(a,b,c){var d=a.width,e=a.height;void 0==b&&(b=d),void 0==c&&(c=e);var f=document.createElement("canvas"),g=f.getContext("2d");return f.width=b,f.height=c,g.drawImage(a,0,0,d,e,0,0,b,c),f}function d(a,b,d,e){return a=c(a,d,e),a.toDataURL(b)}function e(a){document.location.href=a}function f(a){var b=document.createElement("img");return b.src=a,b}function g(a){a=a.toLowerCase().replace(/jpg/i,"jpeg");var b=a.match(/png|jpeg|bmp|gif/)[0];return"image/"+b}function h(a){if(!window.btoa)throw"btoa undefined";var b="";if("string"==typeof a)b=a;else for(var c=0;c<a.length;c++)b+=String.fromCharCode(a[c]);return btoa(b)}function i(a){var b=a.width,c=a.height;return a.getContext("2d").getImageData(0,0,b,c)}function j(a,b){return"data:"+b+";base64,"+a}var a=function(){var a=document.createElement("canvas"),b=a.getContext("2d");return{canvas:!!b,imageData:!!b.getImageData,dataURL:!!a.toDataURL,btoa:!!window.btoa}}(),b="image/octet-stream",k=function(a){var b=a.width,c=a.height,d=b*c*3,e=d+54,f=[66,77,255&e,e>>8&255,e>>16&255,e>>24&255,0,0,0,0,54,0,0,0],g=[40,0,0,0,255&b,b>>8&255,b>>16&255,b>>24&255,255&c,c>>8&255,c>>16&255,c>>24&255,1,0,24,0,0,0,0,0,255&d,d>>8&255,d>>16&255,d>>24&255,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],i=(4-3*b%4)%4,j=a.data,k="",l=b<<2,m=c,n=String.fromCharCode;do{for(var o=l*(m-1),p="",q=0;q<b;q++){var r=q<<2;p+=n(j[o+r+2])+n(j[o+r+1])+n(j[o+r])}for(var s=0;s<i;s++)p+=String.fromCharCode(0);k+=p}while(--m);var t=h(f.concat(g))+h(k);return t},l=function(f,h,l,m){if(a.canvas&&a.dataURL)if("string"==typeof f&&(f=document.getElementById(f)),void 0==m&&(m="png"),m=g(m),/bmp/.test(m)){var n=i(c(f,h,l)),o=k(n);e(j(o,b))}else{var o=d(f,m,h,l);e(o.replace(m,b))}},m=function(b,e,h,l){if(a.canvas&&a.dataURL){if("string"==typeof b&&(b=document.getElementById(b)),void 0==l&&(l="png"),l=g(l),/bmp/.test(l)){var m=i(c(b,e,h)),n=k(m);return f(j(n,"image/bmp"))}var n=d(b,l,e,h);return f(n)}};return{saveAsImage:l,saveAsPNG:function(a,b,c){return l(a,b,c,"png")},saveAsJPEG:function(a,b,c){return l(a,b,c,"jpeg")},saveAsGIF:function(a,b,c){return l(a,b,c,"gif")},saveAsBMP:function(a,b,c){return l(a,b,c,"bmp")},convertToImage:m,convertToPNG:function(a,b,c){return m(a,b,c,"png")},convertToJPEG:function(a,b,c){return m(a,b,c,"jpeg")},convertToGIF:function(a,b,c){return m(a,b,c,"gif")},convertToBMP:function(a,b,c){return m(a,b,c,"bmp")}}}();
-=======
-<body style="perspective: 500px">
-<div style="margin: 50px; position: absolute; left: 0; top: 0; z-index: 50">
-	<span id="widget" class="widget">
-	<img src='trump.jpg' />
-	<div class="exec-order" id="exec-order" style="font-size: 18px" contenteditable onkeypress="keypress(event);">
-		Click here and write whatever you want.
-	</div>
-	</span>
-	<br><br>
-	<button class="save" id="save" style="">Download</button>
-</div>
-</body>
 
-<script type="text/javascript">
->>>>>>> added all
 
 </script>
 </html>
