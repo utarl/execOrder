@@ -62,7 +62,7 @@ function changeFont(e) {
 }
 $(function() {
     $("#save").click(function() {
-        html2canvas($("#widget"), {
+        html2canvas($("#widget").children(), {
             // onrendered: function(canvas) {
             //     theCanvas = canvas;
             //     document.body.appendChild(canvas);
